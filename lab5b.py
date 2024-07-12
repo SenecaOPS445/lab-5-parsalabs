@@ -26,11 +26,8 @@ def write_file_list(file_name, list_of_lines):
 def copy_file_add_line_numbers(file_name_read, file_name_write):
     # Takes two strings, reads data from first file, writes data to new file, adds line number to new file
     with open(file_name_read, 'r') as f_read, open(file_name_write, 'w') as f_write:
-    n=1
-    for i in f_read:
-        f.write(str(n) + ':' + i)
-        n=n+1
-    f.close()
+        for i, line in enumerate(f_read, 1):
+            f_write.write(f"{i}:{line}")
 
 if __name__ == '__main__':
     file1 = 'seneca1.txt'
